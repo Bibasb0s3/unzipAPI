@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
-/*import java.io.BufferedReader;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -34,7 +34,7 @@ import java.nio.file.Path;
 import java.util.Base64;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;*/
+import java.util.zip.ZipFile;
 
 @RestController
 public class UnzipAPI {
