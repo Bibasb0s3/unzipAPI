@@ -46,21 +46,27 @@ public class UnzipAPI {
 	@PostMapping("/unzip")
 
 	public static String unzipFiles(@RequestBody String compareContent) {
-		String readReturn = "";
-		byte[] buffer = new byte[2048];
-    	byte[] base64decodedBytes = Base64.getDecoder().decode(compareContent);
-    	ByteArrayInputStream is = new ByteArrayInputStream(base64decodedBytes);
-    	ZipInputStream zis = new ZipInputStream(is);
-    	ZipEntry entry;
-    	FileSystem fileSystem = FileSystems.getDefault();
-    	while ((entry = zis.getNextEntry()) != null) {
-    		//Path uncompressedFilePath = fileSystem.getPath(entry.getName());
-    		if (entry.isDirectory()) 
-            {
-                readReturn += entry.getName() + "\n";
-				//Files.createDirectories(fileSystem.getPath(destDir + entry.getName()));
-            }
-        } 
+		try {
+			String readReturn = "";
+			byte[] buffer = new byte[2048];
+			byte[] base64decodedBytes = Base64.getDecoder().decode(compareContent);
+			ByteArrayInputStream is = new ByteArrayInputStream(base64decodedBytes);
+			ZipInputStream zis = new ZipInputStream(is);
+			ZipEntry entry;
+			FileSystem fileSystem = FileSystems.getDefault();
+			while ((entry = zis.getNextEntry()) != null) {
+				//Path uncompressedFilePath = fileSystem.getPath(entry.getName());
+				if (entry.isDirectory()) 
+				{
+					readReturn += entry.getName() + "\n";
+					//Files.createDirectories(fileSystem.getPath(destDir + entry.getName()));
+				}
+			} 
+		} catch(IOException e)
+        {
+            
+        }
+		
 		return readReturn;
 
 	}
