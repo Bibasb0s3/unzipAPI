@@ -66,17 +66,6 @@ public class UnzipAPI {
             {
                 test += entry.getName() + "\n";
 				//Files.createDirectories(fileSystem.getPath(destDir + entry.getName()));
-            } else {
-            	/*String uncompressedFileName = destDir + entry.getName();
-            	Path uncompressedFilePath = fileSystem.getPath(uncompressedFileName);
-                try (FileOutputStream fos = new FileOutputStream(uncompressedFilePath.toFile());
-                        BufferedOutputStream bos = new BufferedOutputStream(fos, buffer.length)) {
-
-                    int len;
-                    while ((len = zis.read(buffer)) > 0) {
-                        bos.write(buffer, 0, len);
-                    }
-                } */        	
             }
         }
 		return test;       
