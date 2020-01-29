@@ -48,7 +48,7 @@ public class UnzipAPI {
 	public static String unzipFiles(@RequestBody String compareContent) {
 		String readReturn = "";
 		byte[] buffer = new byte[2048];
-    	byte[] base64decodedBytes = Base64.getDecoder().decode(base64String);
+    	byte[] base64decodedBytes = Base64.getDecoder().decode(compareContent);
     	ByteArrayInputStream is = new ByteArrayInputStream(base64decodedBytes);
     	ZipInputStream zis = new ZipInputStream(is);
     	ZipEntry entry;
