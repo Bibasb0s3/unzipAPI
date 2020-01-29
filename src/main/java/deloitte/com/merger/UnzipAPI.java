@@ -46,8 +46,8 @@ public class UnzipAPI {
 	@PostMapping("/unzip")
 
 	public static String unzipFiles(@RequestBody String compareContent) {
-		try {
-			String readReturn = "";
+		String readReturn = "";
+		try {			
 			byte[] buffer = new byte[2048];
 			byte[] base64decodedBytes = Base64.getDecoder().decode(compareContent);
 			ByteArrayInputStream is = new ByteArrayInputStream(base64decodedBytes);
@@ -65,10 +65,8 @@ public class UnzipAPI {
 		} catch(IOException e)
         {
             
-        }
-		
+        }		
 		return readReturn;
-
 	}
 }
 
