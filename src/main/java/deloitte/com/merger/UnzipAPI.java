@@ -58,8 +58,17 @@ public class UnzipAPI {
 				//Path uncompressedFilePath = fileSystem.getPath(entry.getName());
 				if (entry.isDirectory()) 
 				{
-					readReturn += entry.getName() + "\n";
+					//readReturn += entry.getName() + "\n";
 					//Files.createDirectories(fileSystem.getPath(destDir + entry.getName()));
+				} else {
+					ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+					try (BufferedOutputStream bos = new BufferedOutputStream(outStream, buffer.length)) {
+						int len;
+						while ((len = zis.read(buffer)) > 0) {
+							bos.write(buffer, 0, len);
+						}	
+					}
+					readReturn = Base64.getEncoder().encodeToString(outStream.toByteArray()) ;
 				}
 			} 
 		} catch(IOException e)
