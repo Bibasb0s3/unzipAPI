@@ -16,6 +16,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
