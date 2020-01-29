@@ -47,7 +47,7 @@ public class UnzipAPI {
 
 	public static String unzipFiles(@RequestBody String compareContent) {
 		String readReturn = "";
-		/*byte[] buffer = new byte[2048];
+		byte[] buffer = new byte[2048];
     	byte[] base64decodedBytes = Base64.getDecoder().decode(base64String);
     	ByteArrayInputStream is = new ByteArrayInputStream(base64decodedBytes);
     	ZipInputStream zis = new ZipInputStream(is);
@@ -60,7 +60,7 @@ public class UnzipAPI {
                 readReturn += entry.getName() + "\n";
 				//Files.createDirectories(fileSystem.getPath(destDir + entry.getName()));
             }
-        }*/ 
+        } 
 		return readReturn;
 
 	}
