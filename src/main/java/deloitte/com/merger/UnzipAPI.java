@@ -54,7 +54,7 @@ public class UnzipAPI {
 
 	private static String unzip(String base64String, String destDir) throws IOException {
 		String test = "";
-    	byte[] buffer = new byte[2048];
+    	/*byte[] buffer = new byte[2048];
     	byte[] base64decodedBytes = Base64.getDecoder().decode(base64String);
     	ByteArrayInputStream is = new ByteArrayInputStream(base64decodedBytes);
     	ZipInputStream zis = new ZipInputStream(is);
@@ -67,8 +67,8 @@ public class UnzipAPI {
                 test += entry.getName() + "\n";
 				//Files.createDirectories(fileSystem.getPath(destDir + entry.getName()));
             }
-        }
-		return test;       
+        }*/ 
+		return test;      
     }
 }
 
