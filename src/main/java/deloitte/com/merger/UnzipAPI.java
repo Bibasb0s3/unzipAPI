@@ -71,7 +71,7 @@ public class UnzipAPI {
 						}	
 					}
 					String fileName = entry.getName();            	
-            		fileName = test1.substring(test1.lastIndexOf(File.separator)+1,test1.length() );
+            		fileName = fileName.substring(fileName.lastIndexOf(File.separator)+1,fileName.length() );
 					//readReturn.add(Base64.getEncoder().encodeToString(outStream.toByteArray())) ;
 					ReturnData data = new ReturnData(fileName, Base64.getEncoder().encodeToString(outStream.toByteArray()));
 					readReturn.add(data);
