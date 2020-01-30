@@ -48,8 +48,8 @@ public class UnzipAPI {
 	 * */
 	@PostMapping("/unzip")
 
-	public List<ReturnData> unzipFiles(@RequestBody String compareContent) {
-		ArrayList<ReturnData> readReturn = new ArrayList<ReturnData>();;
+	public List<String> unzipFiles(@RequestBody String compareContent) {
+		ArrayList<String> readReturn = new ArrayList<String>();;
 		try {			
 			byte[] buffer = new byte[2048];
 			byte[] base64decodedBytes = Base64.getDecoder().decode(compareContent);
@@ -73,9 +73,9 @@ public class UnzipAPI {
 					}
 					String fileName = entry.getName();            	
             		fileName = fileName.substring(fileName.lastIndexOf(File.separator)+1,fileName.length() );
-					//readReturn.add(Base64.getEncoder().encodeToString(outStream.toByteArray())) ;
-					ReturnData data = new ReturnData(fileName, Base64.getEncoder().encodeToString(outStream.toByteArray()));
-					readReturn.add(data);
+					readReturn.add(Base64.getEncoder().encodeToString(outStream.toByteArray())) ;
+					//ReturnData data = new ReturnData(fileName, Base64.getEncoder().encodeToString(outStream.toByteArray()));
+					//readReturn.add(data);
 				}
 			} 
 		} catch(IOException e)
