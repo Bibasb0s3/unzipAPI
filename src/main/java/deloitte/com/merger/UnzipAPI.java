@@ -18,7 +18,6 @@ import org.xml.sax.InputSource;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -36,6 +35,8 @@ import java.util.Base64;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class UnzipAPI {
@@ -46,8 +47,8 @@ public class UnzipAPI {
 	 * */
 	@PostMapping("/unzip")
 
-	public static String unzipFiles(@RequestBody String compareContent) {
-		String readReturn = "";
+	public List<String> unzipFiles(@RequestBody String compareContent) {
+		ArrayList<String> readReturn = new ArrayList<String>();;
 		try {			
 			byte[] buffer = new byte[2048];
 			byte[] base64decodedBytes = Base64.getDecoder().decode(compareContent);
@@ -69,7 +70,7 @@ public class UnzipAPI {
 							bos.write(buffer, 0, len);
 						}	
 					}
-					readReturn = Base64.getEncoder().encodeToString(outStream.toByteArray()) ;
+					readReturn.add(Base64.getEncoder().encodeToString(outStream.toByteArray())) ;
 				}
 			} 
 		} catch(IOException e)
